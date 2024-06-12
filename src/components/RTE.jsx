@@ -9,7 +9,7 @@ export default function RTE({name, control, label, defaultValue =""}) {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = `https://cdn.tiny.cloud/1/${conf.tinyMceApiKey}/tinymce/6/tinymce.min.js`;
+    <script src="https://cdn.tiny.cloud/1/{conf.tinyMceApiKey}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     script.referrerPolicy = 'origin';
     script.onload = () => {
       console.log('TinyMCE script loaded');
