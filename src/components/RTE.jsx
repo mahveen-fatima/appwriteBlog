@@ -2,9 +2,25 @@ import React from 'react'
 import {Editor } from '@tinymce/tinymce-react';
 import {Controller } from 'react-hook-form';
 import conf from "../conf/conf"
+import { useEffect } from 'react';
 
 
 export default function RTE({name, control, label, defaultValue =""}) {
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://cdn.tiny.cloud/1/${conf.tinyMceApiKey}/tinymce/6/tinymce.min.js`;
+    script.referrerPolicy = 'origin';
+    script.onload = () => {
+      console.log('TinyMCE script loaded');
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className='w-full'> 
     {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
