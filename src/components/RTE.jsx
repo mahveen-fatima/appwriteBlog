@@ -2,24 +2,12 @@ import React from 'react'
 import {Editor } from '@tinymce/tinymce-react';
 import {Controller } from 'react-hook-form';
 import conf from "../conf/conf"
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 
 export default function RTE({name, control, label, defaultValue =""}) {
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    <script src="https://cdn.tiny.cloud/1/{conf.tinyMceApiKey}/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    script.referrerPolicy = 'origin';
-    script.onload = () => {
-      console.log('TinyMCE script loaded');
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  
 
   return (
     <div className='w-full'> 
@@ -31,7 +19,7 @@ export default function RTE({name, control, label, defaultValue =""}) {
     render={({field: {onChange}}) => (
         <Editor
         initialValue={defaultValue}
-        apiKey={conf.tinyMceApiKey}
+        apiKey="hyu96wvzb8yf2tnh583cpkq4xrp370qcok72l2kwk4vio8c2"
         init={{
             initialValue : defaultValue,
             height: 500,
